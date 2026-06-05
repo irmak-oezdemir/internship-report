@@ -1,0 +1,30 @@
+\begin{thebibliography}{}
+
+\bibitem [\protect \citeauthoryear {%
+Fiig%
+\ \BBA {} Isler%
+}{%
+Fiig%
+\ \BBA {} Isler%
+}{%
+{\protect \APACyear {2004}}%
+}]{%
+Fiig2004}
+\APACinsertmetastar {%
+Fiig2004}%
+\begin{APACrefauthors}%
+Fiig, T.%
+\BCBT {}\ \BBA {} Isler, K.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2004}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{SAS O\&D Low Cost Project}} {{SAS O\&D Low Cost Project}}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {{PODS Consortium Meeting}.} {{PODS Consortium Meeting}.}
+\newblock
+\APACrefnote{Minneapolis, MN}
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}
