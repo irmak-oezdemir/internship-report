@@ -3,8 +3,49 @@
 
 \section{Customer Overview}
 Christian Hintz Vermögensverwaltung GmbH is an independent German asset management company based in Stuttgart. The firm specializes in providing discretionary wealth management services for private investors and businesses, focusing on individually tailored investment strategies and portfolio management. Operating as a regulated financial institution under the supervision of the German Federal Financial Supervisory Authority (BaFin), the company offers services such as strategic portfolio management, financial planning, and investment advisory with a strong emphasis on long-term, goal-oriented wealth building.
+\section{Customer KVG?}
+KVgnin ne oldugunu acikla 
+
+Monega aciklamasi 
+
+musterinin datasini bize kvg saglar 
+
+
 \section{Preparation}
+Proje süreci boyunca musteri ve yazilimci arasinda köprü görevi kuran project manager ile calistim. Project manager müsteri ile birlikte proje icin requirementlari belirledi ve Jira Taskte bunlari listeledi. Ben de bu sayede bir roadmap olusturabildim. 
+Musteriden gelen Input verilerinin kaydedilebilmesi icin once sirketin internal sisteminde bulunan database scripts reposunda setup scripts dosyalarini olusturacaktim sonrasinda yine internal sistemdeki document enginede parser implemente edicektim ve en son yine burada otomatize facthseet olusumu icin parser implemente edicektim. 
+Tüm bu plan icin version control sistemi Git ile repositorylere projeye uygun branchler olusturarak baslangic yaptim.  
 \section{Requirements}
+\textbf{(BURAYI BELKI SAYILARLA VEYA BULLET PUNKTLARLA YAP)}
+Görev kapsami musteri icin Ai Leaders fonuna ait factsheetleri hazirlanmasini kapsamaktadir. Ai Leaders C ve Ai Leader A olarak iki pay sinifina ayrilan fonda Ai Leaders C investment classi implemente edilmistir.  Bu investmen class implementasyonu Ai LEaders A investment classi icin de bir base olusturmaktadir ve ayni template uzerinden farkli setup scriptleri ile olusturulmasina olanak saglar. 
+Bu investment classlara ait factsheetler musterinin gelecekteki taleplerine gore dilenilen zaman araliklarinda olusturulup musteriye iletilebilecektir. 
+
+Bu iki farklı pay sınıfının bulunmasının nedeni, her birinin farklı ücret ve giderlere tabi olmasıdır. Bu farklı ücretler nedeniyle aynı fonun farklı pay sınıfları farklı performans (getiri) gösterebilir.
+
+Factsheetlerin dayandigi bilgiler musterinin KVGsi tarafindan saglanan xlsx uzantili dosyalardan implemente ettigim program araciligiyla alinip database e kaydedilecektir
+Project manager bu dosyalarin ornegini Jira ortamina attachment olarak ekler, sonrasinda test edilebilmesi icin 
+
+Project manager musteri ile birlikte factsheette bulunacak istatistikleri, grafikleri ve logolari kararlastirarak bir jaspersoft templatei olsuturur ve bunlari parserda implemente edebilmem icin bana requirements olarak iletir.
+Chartlar icin style verileri ornegin renk paleti, sayi araliklari, text annotationlari belirlenir
+Jaspersoft is a flexible reporting and analytics platform used to turn raw data into clear, easy-to-read visuals, charts, and documents. Konfigure edilen databaseden dynamic ve static verileri ceker, allowing businesses to view interactive dashboards, generate PDFs, and create custom reports.
+
+Database'e kaydedilen bilgiler ve jaspersoft template ile dilenildigi zaman factsheetler olsuturabilmektedir. 
+
+\textbf{(HANGI BILGILER HANGI DATACOLUMNDAn geldigini table oalrak yap buraya XLSX bakarak)} 
+
+charts:
+\begin{itemize}
+    \item Performance Chart, rollierende volatibility chart, max drawdown chart 
+    \item asset allocation, country allocation, sector allocation, currency allocation ring chart 
+    \item Top 10 security positionen bar chart 
+\end{itemize}
+
+statistics:
+\begin{itemize}    
+    \item monthly and yearly wertentwicklung statistics 
+    \item risikokenzahlen for year 1 
+\end{itemize}
+
 \section{Implementation}
 \subsection{Setup Scripts}
 \subsection{Services}

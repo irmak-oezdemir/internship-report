@@ -1,39 +1,36 @@
 \documentclass[12pt,twoside=off,
-bibtotoc,liststotoc,appendixprefix,paper=a4,headings=small]{scrbook} % 'twoside=on' für Druckversion oder 'twoside=off' für Onlineversion
+bibtotoc,liststotoc,appendixprefix,paper=a4,headings=small]{scrbook} 
 
-%
-% Packages
-% -----------------------------------
 \usepackage[
   paper=a4paper,
   left=12.5mm,
   right=25mm,
   top=25mm,
   bottom=50mm,
-  bindingoffset=10mm]{geometry}		% Seitenränder und Bindungskorrektur einstellen
+  bindingoffset=10mm]{geometry}		
   
 \usepackage{apacite} 			
-\usepackage{svg}% Literatur-Referenzen: American Psycholog. Assoc.
+\usepackage{svg}
 \usepackage{natbib}
 \usepackage{pdfpages}
 \usepackage{graphicx}
 \usepackage{float}
-\setcitestyle{round,aysep={}} 		% Indizierg. in runden Klammern, zw. Autor u. Jahr
-\usepackage[utf8]{inputenc}         % Umlaute im Text
+\setcitestyle{round,aysep={}} 		
+\usepackage[utf8]{inputenc}         
 \usepackage[english]{babel}
 
 \usepackage[T1]{fontenc}
-\usepackage{lmodern}				% Schriftfamilie
-\usepackage{microtype}				% für die Mikrotypografie (besseres Schriftbild)
+\usepackage{lmodern}				
+\usepackage{microtype}				
 \setkomafont{disposition}{\bfseries}
 
-\usepackage{graphicx} 				% Grafiken einfügen (pdf,png - aber jpg vermeiden)
-\graphicspath{{./Bilder/}}          % Pfad zu den Bildern
+\usepackage{graphicx} 				
+\graphicspath{{./Bilder/}}          
 
-\usepackage{url}					% URL's formatieren (z.B. in Literatur) 
-\usepackage[colorlinks,linkcolor=black,citecolor=black,urlcolor=black]{hyperref} 				% für Hyperlinks in PDF-Dokumenten   
+\usepackage{url}				
+\usepackage[colorlinks,linkcolor=black,citecolor=black,urlcolor=black]{hyperref} 				
   
-\usepackage{tabularx} 				% bessere Gestaltung von Tabellen
+\usepackage{tabularx} 				
 \usepackage{longtable} 		
 \usepackage{multicol}				
 \usepackage{multirow}
@@ -42,39 +39,38 @@ bibtotoc,liststotoc,appendixprefix,paper=a4,headings=small]{scrbook} % 'twoside=
 		
 \usepackage[active]{srcltx}
 
-\usepackage{listings}				% Algorithmen
+\usepackage{listings}			
 
-\usepackage{mdwlist}				% Listen
+\usepackage{mdwlist}				
 
-\usepackage{setspace} 				% Zeileneinstellung
-\newtheorem{mydef}{Merksatz}  		% Falls Beispiele, Merksätze m. fortl. Nr. gebr. werden
+\usepackage{setspace} 				
+\newtheorem{mydef}{Merksatz}  		
 \newtheorem{bsp}{Beispiel}
 
-\usepackage{todonotes}				% zum Erstellen von ToDos im Editor
+\usepackage{todonotes}			
 
-\usepackage{lscape}					% zum Rotieren von Seiten
+\usepackage{lscape}					
 
-\usepackage{amsmath}				% zum Schreiben von mathematischen Formeln
+\usepackage{amsmath}		
 
 \usepackage{calc}
 
-\usepackage{footnote}				% Fußnoten
-\usepackage{tablefootnote}			% Fußnoten in Tabellen
+\usepackage{footnote}			
+\usepackage{tablefootnote}		
 
-%\clubpenalty = 10000
-%\widowpenalty = 10000 \displaywidowpenalty = 10000
 
-\hyphenation{voll-st\"andigen}		% Worttrennungen global definieren
 
-\setcounter{tocdepth}{1}			% Ebenen, die im Inhaltsverzeichnis angezeigt werden
+\hyphenation{voll-st\"andigen}	
+
+\setcounter{tocdepth}{1}			
 
 % Document
-% -----------------------------------
+
 \begin{document}
 
 \frontmatter 
-    \include{./Titel/titel} 			% Titelblatt
-    \input{./Kapitel/0_1_abstract_eng} 	% Abstract auf Deutsch 
+    \include{./Titel/titel} 		
+    \input{./Kapitel/0_1_abstract_eng} 
     \newpage
     \clearpage{\pagestyle{empty}\cleardoublepage}
     \include{./Kapitel/0_2_abstract_deu}
@@ -84,24 +80,24 @@ bibtotoc,liststotoc,appendixprefix,paper=a4,headings=small]{scrbook} % 'twoside=
     \newpage
 
     \clearpage{\pagestyle{empty}\cleardoublepage}
-    \input{./Kapitel/0_4_sperrvermerk}      % Sperrvermerk
+    \input{./Kapitel/0_4_sperrvermerk}     
     \newpage
     
     \clearpage{\pagestyle{empty}\cleardoublepage}
-    \onehalfspacing                  	% Zeilenabstand ab hier 1.5 zeilig
-    \tableofcontents 					% Inhaltsverzeichnis
+    \onehalfspacing                  	
+    \tableofcontents 					
     \clearpage{\pagestyle{empty}\cleardoublepage} 
     
-    \listoffigures 					 	% Abbildungsverzeichnis
+    \listoffigures 					 
     \clearpage{\pagestyle{empty}\cleardoublepage}
     
-    \listoftables						% Tabellenverzeichnis
+    \listoftables					
     \clearpage{\pagestyle{empty}\cleardoublepage}
 
-% -----------------------------------
-\mainmatter 							% die einzelnen Kapitel
+
+\mainmatter 						
     \input{Kapitel/1_introduction}
-    \clearpage{\pagestyle{empty}\cleardoublepage}		% löscht Kopfzeilen und Seitennummerierung von der letzten Seite eines Kapitels, sofern dort kein Text mehr steht
+    \clearpage{\pagestyle{empty}\cleardoublepage}		 
     \input{Kapitel/2_company}
     \input{Kapitel/3_tasksincompany}
     \clearpage{\pagestyle{empty}\cleardoublepage}
@@ -114,14 +110,19 @@ bibtotoc,liststotoc,appendixprefix,paper=a4,headings=small]{scrbook} % 'twoside=
     \clearpage{\pagestyle{empty}\cleardoublepage}
      \input{Kapitel/7_AI_List}
      \clearpage  
+
+         \clearpage{\pagestyle{empty}\cleardoublepage}
+     \input{Kapitel/notes.tex}
+     \clearpage  
  \includepdf[pages=-]{aiLeaders.pdf}
  \addcontentsline{toc}{chapter}{AI Leaders C Factsheet}
+     \clearpage  
+ \includepdf[pages=-]{all_tasks.pdf}
+ 
 
-
-% -----------------------------------
 \backmatter 
-\bibliographystyle{apacite}				% bei natbib in deutsch
-\bibliography{./Literatur/quellen}		% Literaturquellen einbinden 
-\input{./Kapitel/erklaerung} 			% Eidesstattliche Erklärung (nicht bei Seminararb.)
+\bibliographystyle{apacite}			
+\bibliography{./Literatur/quellen}	
+\input{./Kapitel/erklaerung} 		
 
 \end{document}
