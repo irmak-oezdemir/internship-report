@@ -3,35 +3,48 @@
 
 \section{Customer Overview}
 Christian Hintz Vermögensverwaltung GmbH is an independent German asset management company based in Stuttgart. The firm specializes in providing discretionary wealth management services for private investors and businesses, focusing on individually tailored investment strategies and portfolio management. Operating as a regulated financial institution under the supervision of the German Federal Financial Supervisory Authority (BaFin), the company offers services such as strategic portfolio management, financial planning, and investment advisory with a strong emphasis on long-term, goal-oriented wealth building.
-\section{Customer KVG?}
-KVgnin ne oldugunu acikla 
+\section{Customer KVG}
+A Capital Management Company is a regulated financial institution that manages investment funds for investors. Its main tasks include portfolio management, risk management, and ensuring compliance with regulations. It also makes sure that investment strategies are followed according to the fund’s goals. In many cases, it acts as a link between asset managers, custodians, and other financial service providers, while being supervised by the relevant financial authority in its country.
 
-Monega aciklamasi 
+In Germany, this type of institution is called a KVG (Kapitalverwaltungsgesellschaft) and is regulated under the German Capital Investment Code (KAGB) by BaFin. 
 
-musterinin datasini bize kvg saglar 
-
-
+In this project, the client’s Capital Management Company is Monega Kapitalanlagegesellschaft mbH. Monega is a German investment management company that provides fund administration and asset management services. In this context, Monega acts as the data provider for client investment information, making sure that structured and validated financial data is available for processing and reporting.
 \section{Preparation}
 Proje süreci boyunca musteri ve yazilimci arasinda köprü görevi kuran project manager ile calistim. Project manager müsteri ile birlikte proje icin requirementlari belirledi ve Jira Taskte bunlari listeledi. Ben de bu sayede bir roadmap olusturabildim. 
 Musteriden gelen Input verilerinin kaydedilebilmesi icin once sirketin internal sisteminde bulunan database scripts reposunda setup scripts dosyalarini olusturacaktim sonrasinda yine internal sistemdeki document enginede parser implemente edicektim ve en son yine burada otomatize facthseet olusumu icin parser implemente edicektim. 
 Tüm bu plan icin version control sistemi Git ile repositorylere projeye uygun branchler olusturarak baslangic yaptim.  
 \section{Requirements}
-\textbf{(BURAYI BELKI SAYILARLA VEYA BULLET PUNKTLARLA YAP)}
-Görev kapsami musteri icin Ai Leaders fonuna ait factsheetleri hazirlanmasini kapsamaktadir. Ai Leaders C ve Ai Leader A olarak iki pay sinifina ayrilan fonda Ai Leaders C investment classi implemente edilmistir.  Bu investmen class implementasyonu Ai LEaders A investment classi icin de bir base olusturmaktadir ve ayni template uzerinden farkli setup scriptleri ile olusturulmasina olanak saglar. 
-Bu investment classlara ait factsheetler musterinin gelecekteki taleplerine gore dilenilen zaman araliklarinda olusturulup musteriye iletilebilecektir. 
+The scope of the project covers the generation of factsheets for the AI Leaders fund. The fund is structured into two share classes, AI Leaders A and AI Leaders C. 
+Within this project, the AI Leaders C investment class has been implemented first, serving as a base template for the AI Leaders A class as well. 
+This design allows both share classes to be generated using the same template with different setup scripts, ensuring reusability and consistency. 
+The main characteristics of the project can be summarized as follows: 
+\begin{itemize} 
+    \item Factsheets can be generated and delivered at configurable time intervals based on future client requirements. 
+    \item The existence of two share classes is due to differences in fees and expense structures, which may result in different performance outcomes for the same fund. 
+    \item Input data is provided by the client’s KVG in XLSX format and is processed through the implemented application before being stored in a database. 
+    \item Project requirements, including sample data files, are shared via Jira as attachments by the project manager for testing purposes. 
+    \item The project manager defines the factsheet structure, including statistics, charts, and logos, in collaboration with the client and provides these requirements for implementation in the parser. 
+    \item Chart styling elements such as color palettes, value ranges, and text annotations are predefined during the design phase. 
+\end{itemize} 
+Jaspersoft is a flexible reporting and analytics platform used to transform raw data into structured and readable reports. It retrieves both static and dynamic data from a configured database, enabling the creation of interactive dashboards, visual charts, and PDF reports. 
+Overall, factsheets can be generated at any time using the stored database information in combination with the configured Jaspersoft template.
 
-Bu iki farklı pay sınıfının bulunmasının nedeni, her birinin farklı ücret ve giderlere tabi olmasıdır. Bu farklı ücretler nedeniyle aynı fonun farklı pay sınıfları farklı performans (getiri) gösterebilir.
 
-Factsheetlerin dayandigi bilgiler musterinin KVGsi tarafindan saglanan xlsx uzantili dosyalardan implemente ettigim program araciligiyla alinip database e kaydedilecektir
-Project manager bu dosyalarin ornegini Jira ortamina attachment olarak ekler, sonrasinda test edilebilmesi icin 
+% Görev kapsami musteri icin Ai Leaders fonuna ait factsheetleri hazirlanmasini kapsamaktadir. Ai Leaders C ve Ai Leader A olarak iki pay sinifina ayrilan fonda Ai Leaders C investment classi implemente edilmistir.  Bu investmen class implementasyonu Ai LEaders A investment classi icin de bir base olusturmaktadir ve ayni template uzerinden farkli setup scriptleri ile olusturulmasina olanak saglar. 
+% Bu investment classlara ait factsheetler musterinin gelecekteki taleplerine gore dilenilen zaman araliklarinda olusturulup musteriye iletilebilecektir. 
 
-Project manager musteri ile birlikte factsheette bulunacak istatistikleri, grafikleri ve logolari kararlastirarak bir jaspersoft templatei olsuturur ve bunlari parserda implemente edebilmem icin bana requirements olarak iletir.
-Chartlar icin style verileri ornegin renk paleti, sayi araliklari, text annotationlari belirlenir
-Jaspersoft is a flexible reporting and analytics platform used to turn raw data into clear, easy-to-read visuals, charts, and documents. Konfigure edilen databaseden dynamic ve static verileri ceker, allowing businesses to view interactive dashboards, generate PDFs, and create custom reports.
+% Bu iki farklı pay sınıfının bulunmasının nedeni, her birinin farklı ücret ve giderlere tabi olmasıdır. Bu farklı ücretler nedeniyle aynı fonun farklı pay sınıfları farklı performans (getiri) gösterebilir.
 
-Database'e kaydedilen bilgiler ve jaspersoft template ile dilenildigi zaman factsheetler olsuturabilmektedir. 
+% Factsheetlerin dayandigi bilgiler musterinin KVGsi tarafindan saglanan xlsx uzantili dosyalardan implemente ettigim program araciligiyla alinip database e kaydedilecektir
+% Project manager bu dosyalarin ornegini Jira ortamina attachment olarak ekler, sonrasinda test edilebilmesi icin 
 
-\textbf{(HANGI BILGILER HANGI DATACOLUMNDAn geldigini table oalrak yap buraya XLSX bakarak)} 
+% Project manager musteri ile birlikte factsheette bulunacak istatistikleri, grafikleri ve logolari kararlastirarak bir jaspersoft templatei olsuturur ve bunlari parserda implemente edebilmem icin bana requirements olarak iletir.
+% Chartlar icin style verileri ornegin renk paleti, sayi araliklari, text annotationlari belirlenir
+% Jaspersoft is a flexible reporting and analytics platform used to turn raw data into clear, easy-to-read visuals, charts, and documents. Konfigure edilen databaseden dynamic ve static verileri ceker, allowing businesses to view interactive dashboards, generate PDFs, and create custom reports.
+
+% Database'e kaydedilen bilgiler ve jaspersoft template ile dilenildigi zaman factsheetler olsuturabilmektedir. 
+
+
 
 charts:
 \begin{itemize}
@@ -45,6 +58,68 @@ statistics:
     \item monthly and yearly wertentwicklung statistics 
     \item risikokenzahlen for year 1 
 \end{itemize}
+
+\noindent
+The tables below represent the column structure of the XLSX files provided by the client. 
+Data is extracted and processed based on these defined columns:
+
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+A & E & F & G & H & S & V \\
+\hline
+AS\_OF\_DATE & NAME & WKN & ISIN & CURRENCY & FUNDVOLUME & PRICE \\
+\hline
+\end{tabular}
+\caption{FondsKompakt Input Column Mapping}
+\label{tab:fondskompakt-columns}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+AA & AB \\
+\hline
+DIVIDEND & DIVIDEND\_DATE \\
+\hline
+\end{tabular}
+\caption{FondsKompakt Input Column Mapping}
+\label{tab:fondskompakt-columns}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+E & F & G & I & P & W & V \\
+\hline
+ISIN & SECURITY NAME & ASSET & CURRENCY & MARKET VALUE & ISSUER & SECTOR  \\
+\hline
+\end{tabular}
+\caption{Bestand Input Column Mapping}
+\label{tab:bestand-columns}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|}
+\hline
+AC \\
+\hline
+COUNTRY \\
+\hline
+\end{tabular}
+\caption{Bestand Input Column Mapping}
+\label{tab:bestand-columns}
+\end{table}
+
+
 
 \section{Implementation}
 \subsection{Setup Scripts}
