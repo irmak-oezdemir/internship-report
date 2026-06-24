@@ -123,8 +123,49 @@ COUNTRY \\
 
 \section{Implementation}
 \subsection{Setup Scripts}
+Musterilerden gelen veriler databankalarina direkt manuel olarak eklenmemektedir. Bunun icin bir database-scripts adinda bir repo bulunur ve setup scripleri sayesinde data manipulation uygulanabilmektedir.
+Bu scriptlerde standardised opsiyonel ve zorunlu datacolumnlar vardir ve bunlar her bir musteri ve proje icin ozel olarak doldurulur. Bu sekilde sistem genelinde bir structure korunur.
+
+Bu dosyalar bash scriptler araciligiyla belirli input klaosrlerine yonelndirilir ve burada otomatik olarak input parsera atanir. Parser CSV doyasini okur ve veritabani kayitlarini olusturur.
+
+Musteriyi kayit etmek ve projesinin temelini olusturmak amaciyla 12 tane script dosyasi hazirlanip proje icin gerekli temel bilgiler database e kaydedilmistir. 
+Bu scriptler arasinda bagimlilik bulundugundan yurutme sirasina gore runlanir. Iste o scriptler:
+
+\begin{itemize}
+    \item \texttt{01\_customer\_setup.csv:} customer setup ile database e yeni bir customer eklenir. Bu estup basitce customerin adi, internal sistemde kolaylik olmasi acisindan bir nickname ve yiine bir java classi ile uretilen bir hash key ile kaydedilir. 
+    \item \texttt{02\_project\_setup.csv:} Project setup ile var olan musterilere yeni projeler eklenir. Bu projelerin componentleri, template bilgileri, error mail recipienti, uretim icin gerekli file amounti ve ultimo regionu csvde eklenir. Örnegin Hintzvv icin project setup dosyasi su sekildedir:
+    \\
+    \begin{tblr}{
+  colspec={X[c]X[c]X[c]},
+  row{1}={bg=green!15,font=\bfseries},
+  row{1}={bg=green!2},
+  hlines,
+  vlines,
+}
+&  &  \\
+ &  &  \\
+&  &  \\
+ &  &  \\
+\end{tblr}
+    \item \texttt{03\_fund\_setup.csv:} fund setup dosyasi ile musterinin yeni fundlari database e kaydedilir.
+    \item \texttt{04\_fic\_setup.csv:} Fund investment class setup ile fondlara ait olan investment classlara veri bankasina kaydedilir.
+    \item \texttt{05\_price\_series\_backfill.csv:}
+    \item \texttt{06\_insert\_input\_pattern.csv:} Input pattern setup i ile musteriden gelecek olan datalarin runlandiginda otomatik olarak ait oldugu input parser tarafindan okunabilmesi icin bir file input pattern olusturmayi saglar.
+    \item \texttt{07\_staticdatasetup.csv:} Factsheetta bulunan static datalarin templatede attribute araciligyla kullanilabilmesi icin veribankasina kaydedilmesini saglar. Bu datalar nadir durumlarda degisiklik gosterir ornegin country veya issue fee gibi
+    \item \texttt{08\_classification\_backfill.csv:} Classification backfll ile fon icin gerekli temel classification categori bilgisini kaydeder. Bu classificationlar daha sonrasinda cesitli chartlari olustururken kullanilir. Bu proje icin gerekli classificationlar sunlardir:\\
+    - AI Leaders asset classification \\
+    - AI Leaders sector classification \\
+    - AI Leaders country classification \\
+    - AI Leaders currency classification
+    \item \texttt{09\_benchmark\_series\_setup.csv:} 
+    \item \texttt{10\_setup\_email\_list.csv:} Email setup ile factsheet icin bir email listesi olusturuldu. E-Mail- Adressen, welche der Liste hinzugefügt werden, erhalten automatisiert die in Zukunft erzeugten Factsheets.
+    \item \texttt{11\_map\_email\_list.csv:} Hier wird die E-Mail-List ID auf die ID des Projektes gemappt.
+    \item \texttt{sql\_function.csv:}
+\end{itemize}
+
 \subsection{Services}
 \subsection{Document Engine}
+her bir proje icin bir parser bulunur 
 
 \subsubsection{Input Parser}
 

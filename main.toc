@@ -13,53 +13,49 @@
 \contentsline {section}{\numberline {2.3}Departments}{3}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Sales \& Marketing}{3}{subsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.3.2}Human Resources}{3}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}Operations}{3}{subsection.2.3.3}%
-\contentsline {subsubsection}{\nonumberline Project Management (PM)}{3}{subsubsection*.5}%
-\contentsline {subsubsection}{\nonumberline Operations-Development (OPSDEV)}{3}{subsubsection*.7}%
+\contentsline {subsection}{\numberline {2.3.3}Operations}{4}{subsection.2.3.3}%
+\contentsline {subsubsection}{\nonumberline Project Management (PM)}{4}{subsubsection*.5}%
+\contentsline {subsubsection}{\nonumberline Operations-Development (OPSDEV)}{4}{subsubsection*.7}%
 \contentsline {subsubsection}{\nonumberline Development (DEV)}{4}{subsubsection*.9}%
-\contentsline {subsubsection}{\nonumberline Quality Assurance (QA)}{4}{subsubsection*.11}%
-\contentsline {section}{\numberline {2.4}TechStack and Tools}{4}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Team Events}{4}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}Student Event SS 26}{4}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.5.2}OPS Team Event}{4}{subsection.2.5.2}%
-\contentsline {chapter}{\numberline {3}Tasks in the Company}{5}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Meetings}{5}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}OPSDEV Daily Stand-up}{5}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}OPSDEV Check-in Meetings}{5}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}OPS Review / Consultation Meetings}{5}{subsection.3.1.3}%
-\contentsline {subsection}{\numberline {3.1.4}Quarterly Reviews}{5}{subsection.3.1.4}%
-\contentsline {subsection}{\numberline {3.1.5}Internship Feedback Sessions}{5}{subsection.3.1.5}%
-\contentsline {section}{\numberline {3.2}Onboarding}{6}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Onboarding Presentation from HR}{6}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}OPSDEV Training Exercises}{6}{subsection.3.2.2}%
+\contentsline {subsubsection}{\nonumberline Quality Assurance (QA)}{5}{subsubsection*.11}%
+\contentsline {section}{\numberline {2.4}TechStack and Tools}{5}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Team Events}{5}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Student Event SS 26}{5}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}OPS Team Event}{5}{subsection.2.5.2}%
+\contentsline {chapter}{\numberline {3}Tasks in the Company}{6}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Meetings}{6}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}OPSDEV Daily Stand-up}{6}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}OPSDEV Check-in Meetings}{6}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}OPS Review / Consultation Meetings}{6}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}Quarterly Reviews}{6}{subsection.3.1.4}%
+\contentsline {subsection}{\numberline {3.1.5}Internship Feedback Sessions}{6}{subsection.3.1.5}%
+\contentsline {section}{\numberline {3.2}Onboarding}{7}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Onboarding Presentation from HR}{7}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}OPSDEV Training Exercises}{7}{subsection.3.2.2}%
 \contentsline {section}{\numberline {3.3}OPSDEV - Daily Development Tasks}{7}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Additional}{7}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Confluence Article about JFreeCharts}{7}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}ISO 27001 Certification Training}{7}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}General Data Protection Awareness Training}{7}{subsection.3.4.3}%
-\contentsline {subsection}{\numberline {3.4.4}Anecon Support}{7}{subsection.3.4.4}%
-\contentsline {subsection}{\numberline {3.4.5}Cleaning Service (maybe)}{7}{subsection.3.4.5}%
-\contentsline {section}{\numberline {3.5}Given Materials}{7}{section.3.5}%
-\contentsline {chapter}{\numberline {4}Internship Project}{9}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Customer Overview}{9}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Customer KVG}{9}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Preparation}{9}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Requirements}{10}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Implementation}{12}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Setup Scripts}{12}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}Services}{12}{subsection.4.5.2}%
-\contentsline {subsection}{\numberline {4.5.3}Document Engine}{12}{subsection.4.5.3}%
-\contentsline {subsubsection}{\nonumberline Input Parser}{12}{subsubsection*.17}%
-\contentsline {subsubsection}{\nonumberline Charting}{12}{subsubsection*.19}%
-\contentsline {subsubsection}{\nonumberline Factsheet Parser}{12}{subsubsection*.21}%
-\contentsline {section}{\numberline {4.6}Testing}{12}{section.4.6}%
-\contentsline {chapter}{\numberline {5}Conclusion}{13}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Learning Outcomes}{13}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Soft Skills}{13}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Technical Skills}{13}{subsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.1.3}Challenges and Areas for Improvement}{14}{subsection.5.1.3}%
-\contentsline {chapter}{\numberline {6}AI List}{15}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Irmak Notes \& TODOs}{16}{chapter.7}%
-\contentsline {chapter}{AI Leaders C Factsheet}{21}{chapter.7}%
-\contentsline {chapter}{\nonumberline Bibliography}{23}{chapter*.22}%
+\contentsline {section}{\numberline {3.4}Additional}{9}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Given Materials}{9}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Internship Project}{10}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Customer Overview}{10}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Customer KVG}{10}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Preparation}{10}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Requirements}{11}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Implementation}{13}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Setup Scripts}{13}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Services}{14}{subsection.4.5.2}%
+\contentsline {subsection}{\numberline {4.5.3}Document Engine}{14}{subsection.4.5.3}%
+\contentsline {subsubsection}{\nonumberline Input Parser}{14}{subsubsection*.22}%
+\contentsline {subsubsection}{\nonumberline Charting}{14}{subsubsection*.24}%
+\contentsline {subsubsection}{\nonumberline Factsheet Parser}{14}{subsubsection*.26}%
+\contentsline {section}{\numberline {4.6}Testing}{14}{section.4.6}%
+\contentsline {chapter}{\numberline {5}Conclusion}{15}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Learning Outcomes}{15}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Soft Skills}{15}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Technical Skills}{15}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Challenges and Areas for Improvement}{16}{subsection.5.1.3}%
+\contentsline {chapter}{\numberline {6}AI List}{17}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Irmak Notes \& TODOs}{18}{chapter.7}%
+\contentsline {chapter}{AI Leaders C Factsheet}{23}{chapter.7}%
+\contentsline {chapter}{Data Protection Awareness Certification}{24}{chapter.7}%
+\contentsline {chapter}{\nonumberline Bibliography}{26}{chapter*.27}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

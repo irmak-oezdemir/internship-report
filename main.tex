@@ -35,8 +35,8 @@ bibtotoc,liststotoc,appendixprefix,paper=a4,headings=small]{scrbook}
 \usepackage{multicol}				
 \usepackage{multirow}
 \usepackage{booktabs}
-\usepackage{tabularx}
-		
+\usepackage{tabularray}
+\UseTblrLibrary{booktabs}
 \usepackage[active]{srcltx}
 
 \usepackage{listings}			
@@ -117,7 +117,12 @@ bibtotoc,liststotoc,appendixprefix,paper=a4,headings=small]{scrbook}
  \includepdf[pages=-]{aiLeaders.pdf}
  \addcontentsline{toc}{chapter}{AI Leaders C Factsheet}
      \clearpage  
+
+ \includepdf[pages=-]{certification-Allgemeine-Datenschutzschulung-.pdf}  
+ \addcontentsline{toc}{chapter}{Data Protection Awareness Certification}  
+ \clearpage
  \includepdf[pages=-]{all_tasks.pdf}
+ 
  
 
 \backmatter 
