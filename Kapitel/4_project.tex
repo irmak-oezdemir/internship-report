@@ -249,6 +249,39 @@ List<String[]> data = input.getHeaderlessSheetDataFromExcel(document.getSingleDa
 \end{lstlisting}
 
 \subsubsection{Chart Style Data}
+Bu class AnevisChartStyle data sinifini extend eder. Ve bu sinifiin ana amaci olusturaln chart tiplerine gore hangi style olacagidir. 
+Onregin charttaki componentlerin renkleri, chartin tick unit sikligi, font ve number format vb. gibi.
+
+\begin{lstlisting}[caption={method}]
+public class HintzvvPerformanceChartStyleData extends AnevisPerformanceChartStyleData {
+
+	@Override
+	public Map<String, Color> getColorMap() {
+		return Map.of("series0", new Color(0, 69, 125));
+	}
+
+	@Override
+	public NumberFormat getNumberFormat(Range range, Locale locale) {
+		return NumberFormatFactory.ofPercent(GERMANY, 0);
+	}
+
+	@Override
+	public Set<TickRule> getDateTickUnitRules() {
+		return new DateTickUnitBuilder()
+				.with(MONTH, 3, 15, DAY)
+				.with(MONTH, 6, 1, MONTH)
+				.with(MONTH, 12, 2, MONTH)
+				.with(YEAR, 5, 1, YEAR)
+				.buildSet();
+	}
+	@Override
+	public Font getLabelFont() {
+		return FontService.getFontFromPath(ROBOTO_CONDENSED_FONT_PATH, 8);
+	}
+
+
+}
+\end{lstlisting}
 
 \subsubsection{Charting}
 
