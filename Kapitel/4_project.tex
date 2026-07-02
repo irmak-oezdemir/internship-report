@@ -1,3 +1,4 @@
+
 \chapter{Internship Project}
 
 
@@ -134,22 +135,19 @@ Bu scriptler arasinda bagimlilik bulundugundan yurutme sirasina gore runlanir. I
 \begin{itemize}
     \item \texttt{01\_customer\_setup.csv:} customer setup ile database e yeni bir customer eklenir. Bu estup basitce customerin adi, internal sistemde kolaylik olmasi acisindan bir nickname ve yiine bir java classi ile uretilen bir hash key ile kaydedilir. 
     \item \texttt{02\_project\_setup.csv:} Project setup ile var olan musterilere yeni projeler eklenir. Bu projelerin componentleri, template bilgileri, error mail recipienti, uretim icin gerekli file amounti ve ultimo regionu csvde eklenir. Örnegin Hintzvv icin project setup dosyasi su sekildedir:
-    \\
-    \begin{tblr}{
-  colspec={X[c]X[c]X[c]},
-  row{1}={bg=green!15,font=\bfseries},
-  row{1}={bg=green!2},
-  hlines,
-  vlines,
-}
-&  &  \\
- &  &  \\
-&  &  \\
- &  &  \\
-\end{tblr}
+\begin{table}[h]
+\centering
+\footnotesize
+\csvautotabular[
+    separator=semicolon,
+    respect all
+]{project_setup.csv}
+\caption{CSV Tablosu}
+\end{table}
+
     \item \texttt{03\_fund\_setup.csv:} fund setup dosyasi ile musterinin yeni fundlari database e kaydedilir.
     \item \texttt{04\_fic\_setup.csv:} Fund investment class setup ile fondlara ait olan investment classlara veri bankasina kaydedilir.
-    \item \texttt{05\_price\_series\_backfill.csv:}
+    \item \texttt{05\_price\_series\_backfill.csv:} Die Series-Backfill-Setups werden genutzt, um zeitlich zurückliegende Daten für Zeitreihen zu einer bestehenden Reihe nachzutragen. Series backfill setups are used to add price series data back in time to an existing series. This is needed to evaluate and display statistics over a longer period of time. 
     \item \texttt{06\_insert\_input\_pattern.csv:} Input pattern setup i ile musteriden gelecek olan datalarin runlandiginda otomatik olarak ait oldugu input parser tarafindan okunabilmesi icin bir file input pattern olusturmayi saglar.
     \item \texttt{07\_staticdatasetup.csv:} Factsheetta bulunan static datalarin templatede attribute araciligyla kullanilabilmesi icin veribankasina kaydedilmesini saglar. Bu datalar nadir durumlarda degisiklik gosterir ornegin country veya issue fee gibi
     \item \texttt{08\_classification\_backfill.csv:} Classification backfll ile fon icin gerekli temel classification categori bilgisini kaydeder. Bu classificationlar daha sonrasinda cesitli chartlari olustururken kullanilir. Bu proje icin gerekli classificationlar sunlardir:\\
@@ -157,17 +155,100 @@ Bu scriptler arasinda bagimlilik bulundugundan yurutme sirasina gore runlanir. I
     - AI Leaders sector classification \\
     - AI Leaders country classification \\
     - AI Leaders currency classification
-    \item \texttt{09\_benchmark\_series\_setup.csv:} 
+    \item \texttt{09\_benchmark\_series\_setup.csv:} To Map different existing time series as benchmarks to either funds, investment classes and depots. 
     \item \texttt{10\_setup\_email\_list.csv:} Email setup ile factsheet icin bir email listesi olusturuldu. E-Mail- Adressen, welche der Liste hinzugefügt werden, erhalten automatisiert die in Zukunft erzeugten Factsheets.
     \item \texttt{11\_map\_email\_list.csv:} Hier wird die E-Mail-List ID auf die ID des Projektes gemappt.
-    \item \texttt{sql\_function.csv:}
+    \item \texttt{sql\_function.csv:} First of all: This is not a "real" SQL function. This .csv file contains the field names and the corresponding data types. The .csv is processed by the SqlFunctionParser. The parser creates a SQL function from this file that can display the associated data on the corresponding fields on the template.
 \end{itemize}
 
-\subsection{Services}
+
 \subsection{Document Engine}
-her bir proje icin bir parser bulunur 
+Document engine internal sistemde projelerin olsuturldugu repodur ve en merkez reponun bu oldugu soylenebilir. Burada her bir proje icin bir parser bulunur. 
+Projeden kasit, X musterisi icin datalarin data bankasina kaydedilmesi de bir projedir ve bunun icin de gerekli miktarda parser gelistirilir, ayni sekilde factsheetler icin de gecerlidir.
+Bunun yani sira databse scriptlerinin de calismasini saglayan parserlar da burda bulunur. 
+Burda ayni zamanda bircok service icin gerekli yardimci parent classslar ve interfaceler bulunur. Her proje ve attribute icin belirli standardda kalmak adina bu gerekli componentler de object oritented olarak bulunmaktadir.
+Document enginedeki gorevim temel olarak 4 basliga ayriliyor:
 
 \subsubsection{Input Parser}
+Input Parser usstte de orneklendigi gibi musteriden gelen datalarin veribankasina consistent ve maintanable kaydedilmesini saglar. Burada her bir parser spring component olarak implemente edilir 
+ve prototype olarak instancelari olsuturlur. Burada en onemli method parse\(\)'dir. 
+
+\begin{lstlisting}[caption={method}]
+public void parse(DocumentOld document) {
+	priceUpdates = input.getHeaderlessSheetDataFromExcel(document.getSingleDataFile(), "Fonds_Kompakt")
+		                .stream()
+		                .filter(ISIN_COLUMN::isNotBlank)
+		                .map(this::toPriceUpdate)
+		                .flatMap(Optional::stream)
+		                .toList();
+
+	Map<InvestmentClassPriceSeriesUpdateInfo, InvestmentClassPriceSeriesUpdate> updates =
+			priceUpdates.stream()
+				        .collect(toMap(
+						        HintzPriceUpdateInfo::priceSeriesUpdateInfo,
+						        HintzPriceUpdateInfo::priceSeriesUpdate
+				        ));
+
+	updateMongoService.savePriceUpdates(updates);
+}
+\end{lstlisting}
+
+
+\begin{lstlisting}[caption={Incoming Security}]
+@Data
+public class MonegaHintzvvIncomingSecurity implements Security {
+
+	private final String isin;
+	private final String name;
+	private final BigDecimal weighting;
+	private final String assetType;
+	private final String country;
+	private final String equitySector;
+	private final String currency;
+    ...
+    }
+
+\end{lstlisting}
+
+\begin{lstlisting}[caption={Incoming Security}]
+private MonegaHintzvvIncomingSecurity toSecurity(String[] row, BigDecimal fundVolume) {
+	String isin = ISIN_COLUMN.getOrThrow(row);
+	String name = EMITTENT_NAME_COLUMN.getNonBlank(row).orElseGet(() -> SECURITY_NAME_COLUMN.getOrThrow(row));
+	String asset = ASSET_COLUMN.getNullable(row);
+	BigDecimal marketValue = MARKET_VALUE_COLUMN.getAsBigDecimal(row).divide(fundVolume, DECIMAL128);
+	String currency = CURRENCY_COLUMN.getNullable(row);
+	String country = COUNTRY_COLUMN.getNullable(row);
+	String sector = SECTOR_COLUMN.getNullable(row);
+
+	return new MonegaHintzvvIncomingSecurity(isin, name, marketValue, asset, country, sector, currency);
+}
+
+\end{lstlisting}
+
+\begin{lstlisting}[caption={method}]
+public void parse(DocumentOld document) {
+List<String[]> data = input.getHeaderlessSheetDataFromExcel(document.getSingleDataFile(),
+			"scd_bestand_kompakt");
+
+	String kvgId = getFundKvgId(data);
+	asOfDate = getAsOfDate(data);
+	BigDecimal fundVolume = getFundVolume(data);
+
+	List<MonegaHintzvvIncomingSecurity> incomingSecurities = 
+        data.stream()
+            .map(row -> toSecurity(row, fundVolume))
+            .toList();
+
+	FundUpdateInfo fundUpdateInfo = updateMongoService.findFundUpdateInfoForKvgId(kvgId, asOfDate);
+
+	FundUpdate fundUpdate = updateFund(incomingSecurities, fundUpdateInfo, asOfDate, fundVolume);
+	isinsToTrigger.addAll(fundUpdateInfo.getIsins());
+
+	updateMongoService.save(fundUpdateInfo, fundUpdate);
+}
+\end{lstlisting}
+
+\subsubsection{Chart Style Data}
 
 \subsubsection{Charting}
 

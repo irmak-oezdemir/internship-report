@@ -18,7 +18,6 @@ bibtotoc,liststotoc,appendixprefix,paper=a4,headings=small]{scrbook}
 \setcitestyle{round,aysep={}} 		
 \usepackage[utf8]{inputenc}         
 \usepackage[english]{babel}
-
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}				
 \usepackage{microtype}				
@@ -57,8 +56,38 @@ bibtotoc,liststotoc,appendixprefix,paper=a4,headings=small]{scrbook}
 
 \usepackage{footnote}			
 \usepackage{tablefootnote}		
+\usepackage{csvsimple}
+\csvset{
+    respect all
+}
+\usepackage{adjustbox}
 
+\usepackage{xcolor}
 
+\definecolor{codebg}{HTML}{F8F9FB}   
+\definecolor{keyword}{HTML}{2563EB}  
+\definecolor{comment}{HTML}{6B7280}  
+\definecolor{string}{HTML}{16A34A}   
+\definecolor{number}{HTML}{9CA3AF} 
+\lstdefinestyle{javastyle}{
+    backgroundcolor=\color{codebg},
+    commentstyle=\color{comment}\itshape,
+    keywordstyle=\color{keyword}\bfseries,
+    stringstyle=\color{string},
+    basicstyle=\ttfamily\footnotesize,
+    numbers=left,
+    numberstyle=\tiny\color{number},
+    numbersep=10pt,
+    showstringspaces=false,
+    tabsize=4,
+    breaklines=true,
+    breakatwhitespace=false,
+    frame=single,
+    rulecolor=\color{black!10},
+    captionpos=b
+}
+
+\lstset{style=javastyle, language=Java}
 
 \hyphenation{voll-st\"andigen}	
 
@@ -114,7 +143,7 @@ bibtotoc,liststotoc,appendixprefix,paper=a4,headings=small]{scrbook}
          \clearpage{\pagestyle{empty}\cleardoublepage}
      \input{Kapitel/notes.tex}
      \clearpage  
- \includepdf[pages=-]{aiLeaders.pdf}
+ \includepdf[pages=-]{factsheet_live.pdf}
  \addcontentsline{toc}{chapter}{AI Leaders C Factsheet}
      \clearpage  
 
